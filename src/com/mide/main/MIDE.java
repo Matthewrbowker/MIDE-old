@@ -4,6 +4,7 @@ package com.mide.main;
 public class MIDE {
   public static void main(String[] arg) {
       netInterface ni = new netInterface();
+      settings s = new settings("Matthewrbowker");
       wikiInterface wi = new wikiInterface("List of Space Shuttle missions");
       System.out.println(wi.doesTitleExist());
       System.out.println(wi.getTitle());

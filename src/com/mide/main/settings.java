@@ -17,7 +17,16 @@ public class settings {
     SettingNode adt;
     
     private void bootstrapSettings(String tempUsername) {
-        
+        String globalSettings = ni.urlopen("http://en.wikipedia.org/w/index.php"
+                + "?action=raw&title=Wikipedia:MIDE/Global_Settings");
+        String localSettings;
+        if (username.equals("")) {
+            localSettings = null;
+        }
+        else {
+            localSettings = ni.urlopen("http://en.wikipedia.org/w/index.php"
+                    + "?action=raw&title=User:" + username + "/mide.js");
+        }
     }
     
     private void bootstrapSettings() {
