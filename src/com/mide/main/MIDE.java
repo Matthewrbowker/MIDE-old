@@ -1,5 +1,5 @@
 
-package com.mine.main;
+package com.mide.main;
 
 public class MIDE {
   public static void main(String[] arg) {
