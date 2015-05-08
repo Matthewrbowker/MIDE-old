@@ -28,7 +28,7 @@ public class netInterface {
 		new InputStreamReader(u.openStream()));
                 String str = null;
                 while((str = in.readLine())!=null) {
-                    sb.append(str);
+                    sb.append(str + "\r\n");
                 }
                 in.close();
                 return sb.toString();

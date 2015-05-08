@@ -33,6 +33,18 @@ public class settings {
         bootstrapSettings("");
     }
     
+    private SettingNode findNode(String key) {
+        SettingNode retVal = null;
+        SettingNode node = adt;
+        while ((node != null) && (node.getNext() != null)) {
+            if (node.getKey().equals(key)) {
+                retVal = node;
+            }
+            node = node.getNext();
+        }
+        return retVal;
+    }
+    
     public settings() {
         username = "";
         adt = null;
@@ -47,6 +59,29 @@ public class settings {
     
     public void reloadSettings() {
         bootstrapSettings(username);
+    }
+    
+    public void printAllSettings() {
+        SettingNode node = adt;
+        while ((node != null) && (node.getNext() != null)) {
+            System.out.println(node.getKey() + ": " + node.getValue());
+            node = node.getNext();
+        }
+    }
+    
+    public void setSetting(String key, String value) {
+        System.out.println(key + ": " + value);
+        SettingNode node = findNode(key);
+        if (node == null) {
+            // create a new node
+        }
+        else {
+            node.setValue(value);
+        }
+    }
+    
+    public void setSetting(String key) {
+        setSetting(key, null);
     }
     
 }

@@ -1,6 +1,7 @@
 
 package com.mide.main;
 
+
 public class MIDE {
   public static void main(String[] arg) {
       netInterface ni = new netInterface();
@@ -16,5 +17,7 @@ public class MIDE {
       System.out.println(wi2.getWikiTitle());
       System.out.println(wi2.retrievePageContents());
       System.out.println(ni.urlopen("http://localhost/~checkua"));
+      s.setSetting("root.uri", "http://localhost");
+      s.printAllSettings();
   }
 }
