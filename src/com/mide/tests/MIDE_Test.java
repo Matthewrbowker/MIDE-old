@@ -7,6 +7,7 @@ package com.mide.tests;
 
 import com.mide.main.*;
 import org.junit.*;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -17,12 +18,8 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 public class MIDE_Test {
-   @Test
-   public void execute() {
-      Result result = JUnitCore.runClasses(SettingNode_Test.class);
-      for (Failure failure : result.getFailures()) {
-         System.out.println(failure.toString());
-      }
-      System.out.println(result.wasSuccessful());
-   }
+    @Test
+    public void testEcho() {
+        fail("Test incomplete");
+    }
 }  	

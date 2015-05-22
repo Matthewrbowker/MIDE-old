@@ -6,6 +6,7 @@
 package com.mide.tests;
 
 import org.junit.*;
+import static org.junit.Assert.assertEquals;
 import com.mide.main.SettingNode;
 
 
@@ -18,6 +19,19 @@ public class SettingNode_Test {
     SettingNode sn = new SettingNode();
     @Test
     public void beforeAllTests() {
-        System.out.println("Testing");
+        assertEquals("Testing","Testing");
+    }
+    
+    @Test
+    public void testCreation() {
+        SettingNode sn1 = new SettingNode();
+        SettingNode sn2 = new SettingNode("sn2");
+        SettingNode sn3 = new SettingNode("sn3","testvalue");
+        assertEquals("", sn1.getKey());
+        assertEquals("", sn1.getValue());
+        assertEquals("sn2", sn2.getKey());
+        assertEquals("", sn2.getValue());
+        assertEquals("sn3", sn3.getKey());
+        assertEquals("testvalue", sn3.getValue());
     }
 }

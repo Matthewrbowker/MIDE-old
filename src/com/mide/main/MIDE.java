@@ -3,16 +3,14 @@ package com.mide.main;
 import com.mide.tests.*;
 import com.mide.view.*;
 
-import org.junit.runner.JUnitCore;
-
-
 public class MIDE {
-  public static void main(String[] arg) {
+  public static void main(String... args) {
       netInterface ni = new netInterface();
       settings s = new settings("Matthewrbowker");
-      if (true) {
-          MIDE_Test mt = new MIDE_Test();
-          mt.execute();
+      if (args.length > 0 && args[0].toLowerCase().equals("test")) {
+          Test_Bootstrapper boot = new Test_Bootstrapper();
+          boot.execute();
+         
       }
       /*
       wikiInterface wi = new wikiInterface("List of Space Shuttle missions");
