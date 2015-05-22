@@ -36,13 +36,22 @@ public class settings {
     private SettingNode findNode(String key) {
         SettingNode retVal = null;
         SettingNode node = adt;
-        while ((node != null) && (node.getNext() != null)) {
+        while ((node != null)) {
             if (node.getKey().equals(key)) {
                 retVal = node;
             }
             node = node.getNext();
         }
         return retVal;
+    }
+    
+    private SettingNode findLastNode() {
+        SettingNode node = adt;
+        while (node != null) {
+            node = node.getNext();
+        }
+        
+        return node;
     }
     
     public settings() {
@@ -63,17 +72,22 @@ public class settings {
     
     public void printAllSettings() {
         SettingNode node = adt;
-        while ((node != null) && (node.getNext() != null)) {
+        while ((node != null)) {
             System.out.println(node.getKey() + ": " + node.getValue());
             node = node.getNext();
         }
     }
     
     public void setSetting(String key, String value) {
-        System.out.println(key + ": " + value);
+        //System.out.println(key + ": " + value);
         SettingNode node = findNode(key);
         if (node == null) {
-            // create a new node
+            node = findLastNode();
+            if (node==null) {
+                adt = new SettingNode(key, value);
+            } else {
+                node.setNext(new SettingNode(key, value));
+            }
         }
         else {
             node.setValue(value);
