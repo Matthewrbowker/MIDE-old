@@ -16,7 +16,7 @@ import com.mide.main.SettingNode;
 
 public class SettingNode_Test {
     SettingNode sn = new SettingNode();
-    @Before
+    @Test
     public void beforeAllTests() {
         System.out.println("Testing");
     }
