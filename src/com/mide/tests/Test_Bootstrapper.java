@@ -33,22 +33,21 @@ public class Test_Bootstrapper {
         }else {
             String fileName = file.getName().replace(".java","");
             System.out.println("Testing: " + fileName);
+            String className = "com.mide.tests." + fileName;
             try {
-                System.out.println((Class) Class.forName("com.mide.tests." + fileName));
-                Result result = JUnitCore.runClasses((Class) Class.forName("com.mide.tests." + fileName));
-                System.out.println(result.getFailureCount());
+                Result result = JUnitCore.runClasses((Class) Class.forName(className));
                 for (Failure failure : result.getFailures()) {
                     System.out.println("FAIL: " + failure.toString());
                     failures++;
                 }
-                System.out.println("Final Result: " + result.wasSuccessful());
+                System.out.println("Final Result: " + 
+                        (result.wasSuccessful()? "Success":"Failure"));
             } catch(Exception e) {
                 System.out.println("FAIL: An Error occured when executing the class: "
                 + e.getMessage());
                 failures++;
             } finally {
                 System.out.println("--------------------");
-                System.out.println();
                 System.out.println();
             }
             

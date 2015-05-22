@@ -6,7 +6,7 @@
 package com.mide.tests;
 
 import org.junit.*;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import com.mide.main.SettingNode;
 
 
@@ -16,11 +16,6 @@ import com.mide.main.SettingNode;
  */
 
 public class SettingNode_Test {
-    SettingNode sn = new SettingNode();
-    @Test
-    public void beforeAllTests() {
-        assertEquals("Testing","Testing");
-    }
     
     @Test
     public void testCreation() {
@@ -33,5 +28,31 @@ public class SettingNode_Test {
         assertEquals("", sn2.getValue());
         assertEquals("sn3", sn3.getKey());
         assertEquals("testvalue", sn3.getValue());
+    }
+    
+    @Test
+    public void setGetKeys() {
+        SettingNode sn = new SettingNode("key");
+        assertEquals(sn.getKey(), "key");
+        sn.setKey("key2");
+        assertEquals(sn.getKey(), "key2");
+    }
+    
+    @Test
+    public void setGetValues() {
+        SettingNode sn = new SettingNode("key","value");
+        assertEquals(sn.getValue(), "value");
+        sn.setValue("value 2");
+        assertEquals(sn.getValue(), "value 2");
+    }
+    
+    @Test
+    public void setGetNext() {
+        SettingNode sn = new SettingNode("key","value");
+        assertEquals(sn.getNext(), null);
+        sn.setNext(new SettingNode("keyNext", "Value.Next"));
+        assertTrue(sn.getNext() instanceof SettingNode);
+        assertEquals(sn.getNext().getKey(), "keyNext");
+        assertEquals(sn.getNext().getValue(), "Value.Next");
     }
 }
