@@ -34,7 +34,7 @@ public class MIDE {
       System.out.println("Execute main interface...");
       JFrame frame = new JFrame();
       frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      frame.getContentPane().add(new com.mide.view.Main());
+      frame.getContentPane().add(new MainView());
       frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
       frame.pack();
       frame.setVisible(true);

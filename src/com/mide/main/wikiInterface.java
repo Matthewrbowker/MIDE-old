@@ -10,8 +10,6 @@ package com.mide.main;
  * @author Matthew
  */
 
-import java.net.URLEncoder;
-
 public class wikiInterface {
     private String title;
     private String wikiTitle;
@@ -19,7 +17,7 @@ public class wikiInterface {
     
     private String parseTitle(String title) {
         title = title.replace(" ", "_");
-        title = URLEncoder.encode(title);
+        title = java.net.URLEncoder.encode(title);
         return title;
     }
     
@@ -52,7 +50,7 @@ public class wikiInterface {
                                 + wikiTitle);
         }
         catch(Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             return null;
         }
     }
