@@ -12,7 +12,7 @@ public class MIDE {
           // boostrapper will exit the execution based on test results
       }
       
-      /*
+     
       netInterface ni = new netInterface();
       settings s = new settings("Matthewrbowker");
       wikiInterface wi = new wikiInterface("List of Space Shuttle missions");
@@ -30,7 +30,8 @@ public class MIDE {
       s.setSetting("test.String", "Testing");
       s.setSetting("test.String2", "Testing2");
       s.printAllSettings();
-      */
+     
+      /*
       System.out.println("Execute main interface...");
       JFrame frame = new JFrame();
       frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -38,5 +39,6 @@ public class MIDE {
       frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
       frame.pack();
       frame.setVisible(true);
+              */
   }
 }
